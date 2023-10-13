@@ -1,0 +1,8 @@
+**/__pycache__/
+/.idea/
+/bin/phing
+/build/
+/composer.lock
+/dist/
+/vendor/
+/venv/

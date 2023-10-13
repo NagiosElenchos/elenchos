@@ -1,0 +1,3 @@
+# Must be aligned with setup.py.
+cleo~=2.0.0
+lxml~=4.9.3
