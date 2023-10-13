@@ -13,7 +13,7 @@ class ElenchosApplication(Application):
         """
         Object constructor.
         """
-        Application.__init__(self, 'Élenchos', '0.0.0')
+        Application.__init__(self, 'Élenchos', '0.0.1')
 
         self._command_loader = ElenchosCommandLoader()
 

@@ -9,14 +9,14 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-        name='Elenchos',
+        name='elenchos',
 
-        version='0.0.0',
+        version='0.0.1',
 
         description='Élenchos: A Nagios plugin framework',
         long_description=long_description,
 
-        url='https://github.com/SetBased/Elenchos',
+        url='https://github.com/NagiosElenchos/elenchos',
 
         author='Set Based IT Consultancy',
         author_email='info@setbased.nl',

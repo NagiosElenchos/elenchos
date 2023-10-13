@@ -69,7 +69,7 @@ class ElenchosCommandLoader(CommandLoader):
         commands = XmlHelper.read_commands(path) if os.path.exists(path) else {}
 
         # Add build din commands.
-        commands['gather-commands'] = 'elenchos.command.GatherCommandsCommand.GatherCommandsCommand'
+        commands['gather-commands'] = 'Elenchos.command.GatherCommandsCommand.GatherCommandsCommand'
 
         return commands
 

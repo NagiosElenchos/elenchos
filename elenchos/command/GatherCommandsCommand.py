@@ -35,7 +35,9 @@ class GatherCommandsCommand(CheckCommand):
         home = os.path.dirname(os.path.dirname(sys.modules[__name__].__file__))
         target_path = os.path.realpath(os.path.join(home, 'commands.xml'))
         folders = list(filter(lambda x: x.endswith('site-packages'), sys.path))
+
         for folder in folders:
+            self.io.write_line('Scanning folder <fso>{}</fso>'.format(folder), verbosity=Verbosity.VERBOSE)
             paths = glob.glob(os.path.join(folder, '**/commands.xml'), recursive=True)
             for path in paths:
                 path = os.path.realpath(path)
