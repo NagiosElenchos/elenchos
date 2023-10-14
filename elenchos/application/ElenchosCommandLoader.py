@@ -68,7 +68,7 @@ class ElenchosCommandLoader(CommandLoader):
         # Load all plugin commands.
         commands = XmlHelper.read_commands(path) if os.path.exists(path) else {}
 
-        # Add build din commands.
+        # Add build in commands.
         commands['gather-commands'] = 'elenchos.command.GatherCommandsCommand.GatherCommandsCommand'
 
         return commands
