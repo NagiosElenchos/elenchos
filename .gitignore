@@ -1,10 +1,10 @@
 **/__pycache__/
 /.idea/
-/Elenchos.egg-info/
 /bin/phing
 /build/
 /composer.lock
 /dist/
+/elenchos.egg-info/
 /elenchos/commands.xml
 /vendor/
 /venv/
