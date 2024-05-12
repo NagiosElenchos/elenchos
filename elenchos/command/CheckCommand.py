@@ -12,7 +12,7 @@ class CheckCommand(Command, ABC):
     # ------------------------------------------------------------------------------------------------------------------
     def __set_style(self):
         """
-        Sets the output format style used by SDoc.
+        Sets the output format style used by Élenchos.
         """
         # Style for file system objects (e.g. file and directory names).
         self.add_style('fso', fg='green', options=['bold'])

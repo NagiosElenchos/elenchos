@@ -14,7 +14,7 @@ class GatherCommandsCommand(CheckCommand):
     A command to gather all Élenchos commands.
     """
     name = 'gather-commands'
-    description = 'Gather all Élenchos commands'
+    description = 'Gathers all installed Élenchos commands.'
 
     # ------------------------------------------------------------------------------------------------------------------
     def _handle(self) -> int:
