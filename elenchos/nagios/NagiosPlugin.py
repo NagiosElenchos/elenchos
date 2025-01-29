@@ -18,15 +18,44 @@ class NagiosPlugin(ABC):
 
         :param name: The name of this Nagios plugin.
         """
-        self._name: str = name
+        self.__name: str = name
         """
         The name of this Nagios plugin.
+        """
+
+        self.__message: str | None = None
+        """
+        The message of this Nagios plugin.
         """
 
         self.__performance_data: List[PerformanceData] = []
         """
         The list of performance data of this Nagios plugin.
         """
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @property
+    def name(self) -> str:
+        """
+        Returns the name of this Nagios plugin.
+        """
+        return self.__name
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @property
+    def message(self) -> str:
+        """
+        Returns the message of this Nagios plugin.
+        """
+        return self.__message
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @message.setter
+    def message(self, message: str | None) -> None:
+        """
+        Sets the message of this Nagios plugin.
+        """
+        self.__message = message
 
     # ------------------------------------------------------------------------------------------------------------------
     def __check_performance_data(self) -> Tuple[NagiosStatus, List[str], List[str]]:
@@ -55,26 +84,6 @@ class NagiosPlugin(ABC):
         self.__performance_data.append(performance_data)
 
     # ------------------------------------------------------------------------------------------------------------------
-    def _get_description(self, status: NagiosStatus, header_list: List[str]) -> str:
-        """
-        Returns the description of the check of this Nagios plugin.
-
-        :param status: The status of the check of this Nagios plugin.
-        :param header_list: The list of headers of the performance data.
-        """
-        return ', '.join(header_list)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def _get_performance(self, status: NagiosStatus, performance_list: List[str]) -> str:
-        """
-        Returns the description of the check of this Nagios plugin.
-
-        :param status: The status of the check of this Nagios plugin.
-        :param performance_list: The list of the performance data.
-        """
-        return ' '.join(performance_list)
-
-    # ------------------------------------------------------------------------------------------------------------------
     @abc.abstractmethod
     def _self_check(self) -> NagiosStatus:
         """
@@ -93,15 +102,17 @@ class NagiosPlugin(ABC):
         status_perf, header_list, performance_list = self.__check_performance_data()
         status = status_self.worst(status_perf)
 
-        message = "{} {}".format(self._name, status.name)
-        description = self._get_description(status, header_list)
-        performance = self._get_performance(status, performance_list)
+        message = "{} {}".format(self.__name, status.name)
+        description = ', '.join(header_list)
+        performance = ' '.join(performance_list)
+        if self.__message:
+            message = message + ' ' + self.__message
         if description:
             message += ": " + description
         if performance:
             message += " | " + performance
 
-        print('{}\n'.format(message.strip()))
+        print(f'{message.strip()}\n')
 
         return status
 
