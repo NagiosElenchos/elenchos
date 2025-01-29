@@ -21,7 +21,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10.0"
-cleo = "^2.0.1"
+cleo = "^2.1.0"
 lxml = "^5.3.0"
 
 [tool.poetry.scripts]
