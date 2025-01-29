@@ -10,11 +10,11 @@ class CheckCommand(Command, ABC):
     """
 
     # ------------------------------------------------------------------------------------------------------------------
-    def __set_style(self):
+    def __set_style(self) -> None:
         """
         Sets the output format style used by Élenchos.
         """
-        # Style for file system objects (e.g. file and directory names).
+        # Style for file system objects (e.g., file and directory names).
         self.add_style('fso', fg='green', options=['bold'])
 
         # Style for errors.

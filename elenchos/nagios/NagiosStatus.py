@@ -32,9 +32,7 @@ class NagiosStatus(Enum):
         """
         Returns the worst status of this status and another status.
 
-        :param elenchos.nagios.NagiosStatus.NagiosStatus status: The other status.
-
-        :rtype: elenchos.nagios.NagiosStatus.NagiosStatus
+        :param status: The other status.
         """
         if self.value < status.value:
             return status

@@ -50,9 +50,9 @@ class GatherCommandsCommand(CheckCommand):
     # ------------------------------------------------------------------------------------------------------------------
     def __write_commands(self, commands: Dict[str, str]) -> None:
         """
-        Writes commands to a commands XML file.
+        Writes commands to a commands' XML file.
 
-        :param Dict[str, str] commands: The commands.
+        :param commands: The commands.
         """
         home = os.path.dirname(os.path.dirname(sys.modules[__name__].__file__))
         path = os.path.realpath(os.path.join(home, 'commands.xml'))

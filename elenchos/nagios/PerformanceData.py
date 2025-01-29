@@ -25,17 +25,17 @@ class PerformanceData:
         """
         Object constructor.
 
-        :param str name: The name of the performance data.
-        :param int|float|None value: The value of the performance data.
-        :param int|float|str|None value_in_description: The representation of the value in the description.
-        :param IncludeInDescription include_in_description: How to include the performance data into the description.
-        :param int|float|None warning: The warning level.
-        :param int|float|None critical: The critical level.
-        :param int|float|None min_value: The minium value to visualise.
-        :param int|float|None max_value: The maximum value to visualise.
-        :param str|None unit: The unit of the performance data.
-        :param str type_check: Either, 'asc' or 'desc', method to compare the performance data with warning and
-                               critical levels.
+        :param name: The name of the performance data.
+        :param value: The value of the performance data.
+        :param value_in_description: The representation of the value in the description.
+        :param include_in_description: How to include the performance data in the description.
+        :param warning: The warning level.
+        :param critical: The critical level.
+        :param min_value: The minium value to visualize.
+        :param max_value: The maximum value to visualize.
+        :param unit: The unit of the performance data.
+        :param type_check: Either, 'asc' or 'desc', method to compare the performance data with warning and
+                           critical levels.
         """
         if unit not in [None, 's', 'us', 'ms', '%', 'B', 'KB', 'TB', 'GB', 'c']:
             raise ValueError(unit)

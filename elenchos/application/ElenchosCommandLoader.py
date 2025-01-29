@@ -33,7 +33,7 @@ class ElenchosCommandLoader(CommandLoader):
         """
         Returns whether a command exists.
 
-        :param str name :The name of the command.
+        :param name :The name of the command.
         """
         return name in self.__command
 
@@ -42,7 +42,7 @@ class ElenchosCommandLoader(CommandLoader):
         """
         Returns a command given its name.
 
-        :param str name: The name of the command.
+        :param name: The name of the command.
         """
         if name not in self.__command:
             raise CleoCommandNotFoundError(name)

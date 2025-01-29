@@ -16,7 +16,7 @@ class NagiosPlugin(ABC):
         """
         Object constructor.
 
-        :param str name: The name of this Nagios plugin.
+        :param name: The name of this Nagios plugin.
         """
         self._name: str = name
         """
@@ -50,7 +50,7 @@ class NagiosPlugin(ABC):
         """
         Adds performance data to this Nagios plugin.
 
-        :param PerformanceData performance_data: The performance data.
+        :param performance_data: The performance data.
         """
         self.__performance_data.append(performance_data)
 
@@ -59,10 +59,8 @@ class NagiosPlugin(ABC):
         """
         Returns the description of the check of this Nagios plugin.
 
-        :param NagiosStatus status: The status of the check of this Nagios plugin.
-        :param List[str] header_list: The list of headers of the performance data.
-
-        :rtype: str
+        :param status: The status of the check of this Nagios plugin.
+        :param header_list: The list of headers of the performance data.
         """
         return ', '.join(header_list)
 
@@ -71,10 +69,8 @@ class NagiosPlugin(ABC):
         """
         Returns the description of the check of this Nagios plugin.
 
-        :param NagiosStatus status: The status of the check of this Nagios plugin.
-        :param List[str] performance_list: The list of the performance data.
-
-        :rtype: str
+        :param status: The status of the check of this Nagios plugin.
+        :param performance_list: The list of the performance data.
         """
         return ' '.join(performance_list)
 
@@ -84,8 +80,6 @@ class NagiosPlugin(ABC):
         """
         This method must be implemented by concrete instances to perform the actual check of this Nagios plugin. This
         method may use method _add_performance_data() for adding performance data to this Nagios elenchos.
-
-        :rtype: NagiosStatus
         """
         raise NotImplementedError()
 
@@ -94,8 +88,6 @@ class NagiosPlugin(ABC):
         """
         Executes the actual check of this Nagios plugin and does all administration for return status, message, and
         performance data.
-
-        :rtype: NagiosStatus
         """
         status_self = self._self_check()
         status_perf, header_list, performance_list = self.__check_performance_data()

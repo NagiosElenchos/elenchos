@@ -13,9 +13,9 @@ class XmlHelper:
     @staticmethod
     def read_commands(filename: str) -> dict[str, str]:
         """
-        Reads a commands XML file.
+        Reads a commands' XML file.
 
-        :param str filename: The path to the commands XML file.
+        :param filename: The path to the commands XML file.
         """
         commands = {}
 
@@ -35,10 +35,9 @@ class XmlHelper:
         """
         Writes a commands XML file.
 
-        :param str filename: The path to the commands XML file.
-        :param Dict[str, str] commands: The commands. A map from command name to class name.
+        :param filename: The path to the commands XML file.
+        :param commands: The commands. A map from command name to class name.
         """
-
         root = etree.Element('commands')
         for name, command in commands.items():
             element = etree.Element('command')
